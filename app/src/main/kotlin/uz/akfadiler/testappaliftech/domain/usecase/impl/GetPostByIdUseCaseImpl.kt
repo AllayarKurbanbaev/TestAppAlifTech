@@ -5,20 +5,20 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import timber.log.Timber
-import uz.akfadiler.testappaliftech.data.remote.response.user.UserResponse
+import uz.akfadiler.testappaliftech.data.remote.response.posts.PostResponse
 import uz.akfadiler.testappaliftech.data.repository.app.AppRepository
 import uz.akfadiler.testappaliftech.domain.model.MessageData
 import uz.akfadiler.testappaliftech.domain.model.ResultData
-import uz.akfadiler.testappaliftech.domain.usecase.GetUserListUseCase
+import uz.akfadiler.testappaliftech.domain.usecase.GetPostByIdUseCase
 import uz.akfadiler.testappaliftech.utils.isConnected
 import javax.inject.Inject
 
-class GetUserListUseCaseImpl @Inject constructor(
+class GetPostByIdUseCaseImpl @Inject constructor(
     private val repository: AppRepository
-) : GetUserListUseCase {
-    override fun invoke() = flow<ResultData<List<UserResponse>>> {
-        if (isConnected()){
-            val response = repository.getUserListFromService()
+) : GetPostByIdUseCase {
+    override fun invoke(id: Int) = flow<ResultData<PostResponse>> {
+        if (isConnected()) {
+            val response = repository.getPostByIdFromService(id)
             Timber.d(response.code().toString())
             if (response.isSuccessful) {
                 response.body()?.let {
@@ -36,4 +36,5 @@ class GetUserListUseCaseImpl @Inject constructor(
     }.catch {
         emit(ResultData.Fail(MessageData.Text(it.localizedMessage!!)))
     }.flowOn(Dispatchers.IO)
+
 }

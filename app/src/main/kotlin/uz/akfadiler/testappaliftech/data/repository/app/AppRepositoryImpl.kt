@@ -21,15 +21,15 @@ class AppRepositoryImpl @Inject constructor(
         return api.getPostsList()
     }
 
-    override suspend fun getPostById(id: Int): Response<List<PostResponse>> {
+    override suspend fun getPostByIdFromService(id: Int): Response<PostResponse> {
         return api.getPostById("posts/$id")
     }
 
-    override suspend fun getPostByUserId(userId: Int): Response<List<PostResponse>> {
+    override suspend fun getPostByUserIdFromService(userId: Int): Response<List<PostResponse>> {
         return api.getPostByUserId(userId)
     }
 
-    override suspend fun deletePostById(id: Int): Response<Unit> {
+    override suspend fun deletePostByIdFromService(id: Int): Response<Unit> {
         return api.deletePostById("/posts/$id")
     }
 }

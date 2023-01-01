@@ -5,20 +5,20 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import timber.log.Timber
-import uz.akfadiler.testappaliftech.data.remote.response.user.UserResponse
+import uz.akfadiler.testappaliftech.data.remote.response.posts.PostResponse
 import uz.akfadiler.testappaliftech.data.repository.app.AppRepository
 import uz.akfadiler.testappaliftech.domain.model.MessageData
 import uz.akfadiler.testappaliftech.domain.model.ResultData
-import uz.akfadiler.testappaliftech.domain.usecase.GetUserListUseCase
+import uz.akfadiler.testappaliftech.domain.usecase.GetPostListUseCase
 import uz.akfadiler.testappaliftech.utils.isConnected
 import javax.inject.Inject
 
-class GetUserListUseCaseImpl @Inject constructor(
+class GetPostListUseCaseImpl @Inject constructor(
     private val repository: AppRepository
-) : GetUserListUseCase {
-    override fun invoke() = flow<ResultData<List<UserResponse>>> {
+) : GetPostListUseCase {
+    override fun invoke() = flow<ResultData<List<PostResponse>>> {
         if (isConnected()){
-            val response = repository.getUserListFromService()
+            val response = repository.getPostsListFromService()
             Timber.d(response.code().toString())
             if (response.isSuccessful) {
                 response.body()?.let {

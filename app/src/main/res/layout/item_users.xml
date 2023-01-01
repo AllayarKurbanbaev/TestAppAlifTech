@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvHistory"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/item_background"
+    app:cardElevation="2dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:cardElevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_standard">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:padding="4dp"
+                    android:text="@string/name"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_standard" />
+
+                <TextView
+                    android:id="@+id/nameDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:padding="4dp"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/text_color_7"
+                    android:textSize="@dimen/text_size_standard"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/usernameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/username"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_standard" />
+
+                <TextView
+                    android:id="@+id/usernameDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical|end"
+                    android:padding="4dp"
+                    android:textColor="@color/text_color_7"
+                    android:textSize="@dimen/text_size_standard"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/emailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/email"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_standard" />
+
+                <TextView
+                    android:id="@+id/emailDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical|end"
+                    android:padding="4dp"
+                    android:textColor="@color/text_color_7"
+                    android:textSize="@dimen/text_size_standard"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llWebSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/webSiteTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/website"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_standard" />
+
+                <TextView
+                    android:id="@+id/webSiteDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical|end"
+                    android:padding="4dp"
+                    android:textColor="@color/text_color_7"
+                    android:textSize="@dimen/text_size_standard"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/companyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/company"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_standard" />
+
+                <TextView
+                    android:id="@+id/companyDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_vertical|end"
+                    android:padding="4dp"
+                    android:textColor="@color/text_color_7"
+                    android:textSize="@dimen/text_size_standard"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_small"
+                android:paddingVertical="@dimen/padding_small">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_location"
+                    android:paddingVertical="@dimen/padding_middle"
+                    android:src="@drawable/ic_location" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnCall"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_call"
+                    android:paddingVertical="@dimen/padding_middle"
+                    android:src="@drawable/ic_call_calling" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnPosts"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:layout_marginVertical="@dimen/margin_very_small"
+                android:background="@drawable/bg_button_posts"
+                android:fontFamily="@font/sf_pro_display"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/padding_standard"
+                android:paddingVertical="@dimen/padding_small"
+                android:text="@string/posts"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_big" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

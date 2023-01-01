@@ -9,4 +9,21 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="color_snack_default">#50555C</color>
+    <color name="screen_background_color">#FFFFFF</color>
+
+    <color name="text_color_default">#2F2F2F</color>
+    <color name="text_color_red">#EA455F</color>
+    <color name="text_color_1">#000000</color>
+    <color name="text_color_2">#51526C</color>
+    <color name="text_color_3">#9DA8C2</color>
+    <color name="text_color_4">#9497A1</color>
+    <color name="text_color_5">#8E481E</color>
+    <color name="text_color_7">#35AC81</color>
+    <color name="delete_button_color">#EB5757</color>
+    <color name="dialog_button_color">#DFE3EB</color>
+    <color name="menu_select">#E7372C</color>
+    <color name="menu_unselect">#828282</color>
+    <color name="item_background">#E2E5ED</color>
+    <color name="menu_background">#F9F9F9F0</color>
+    <color name="logo_color">#E02329</color>
 </resources>

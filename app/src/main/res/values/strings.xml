@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">TestAppAlifTech</string>
+    <string name="users">Users</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="company">Company</string>
+    <string name="posts">Posts</string>
+    <string name="website">Website</string>
+    <string name="no_location">Location not found</string>
+    <string name="no_phone_number">Phone number not found</string>
+    <string name="detail">Detail</string>
+    <string name="albums">Albums</string>
+    <string name="todos">Todos</string>
 </resources>

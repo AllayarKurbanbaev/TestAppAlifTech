@@ -16,7 +16,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField('String', 'BASE_URL', '"http://192.168.7.38:2001/"')
+        buildConfigField('String', 'BASE_URL', '"https://jsonplaceholder.typicode.com"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -102,6 +102,4 @@ dependencies {
 
     //todo permission
     implementation 'com.nabinbhandari.android:permissions:3.8'
-
-
 }

@@ -1,4 +1,4 @@
-package uz.akfadiler.akfacrm.utils
+package uz.akfadiler.testappaliftech.utils
 
 import android.app.Activity
 import android.content.Context

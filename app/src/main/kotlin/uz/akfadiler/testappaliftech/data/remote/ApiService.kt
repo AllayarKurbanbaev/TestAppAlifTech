@@ -20,11 +20,11 @@ interface ApiService {
     suspend fun getPostsList(): Response<List<PostResponse>>
 
     @GET
-    suspend fun getPostById(@Url url : String) : Response<List<PostResponse>>
+    suspend fun getPostById(@Url url: String): Response<PostResponse>
 
     @GET("/posts")
-    suspend fun getPostByUserId(@Query("userId") userId : Int) : Response<List<PostResponse>>
+    suspend fun getPostByUserId(@Query("userId") userId: Int): Response<List<PostResponse>>
 
-    @DELETE()
-    suspend fun deletePostById(@Url url: String) : Response<Unit>
+    @DELETE
+    suspend fun deletePostById(@Url url: String): Response<Unit>
 }
