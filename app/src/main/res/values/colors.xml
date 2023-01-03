@@ -10,7 +10,7 @@
 
     <color name="color_snack_default">#50555C</color>
     <color name="screen_background_color">#FFFFFF</color>
-
+    <color name="posts_item_color">#F5F7FA</color>
     <color name="text_color_default">#2F2F2F</color>
     <color name="text_color_red">#EA455F</color>
     <color name="text_color_1">#000000</color>
