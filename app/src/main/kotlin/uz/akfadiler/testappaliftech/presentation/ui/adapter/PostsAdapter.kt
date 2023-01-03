@@ -12,8 +12,10 @@ class PostsAdapter : ListAdapter<PostResponse, PostsAdapter.PostsViewHolder>(Pos
 
     inner class PostsViewHolder(private val binding: ItemPostsBinding) : ViewHolder(binding.root) {
 
-        fun bind() {
-
+        fun bind() = with(binding) {
+            val model = getItem(absoluteAdapterPosition)
+            title.text = "${absoluteAdapterPosition+1}) ${model.title}"
+            body.text = model.body
         }
     }
 
