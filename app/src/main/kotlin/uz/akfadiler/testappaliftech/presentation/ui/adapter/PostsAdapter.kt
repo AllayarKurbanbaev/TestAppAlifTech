@@ -10,11 +10,20 @@ import uz.akfadiler.testappaliftech.databinding.ItemPostsBinding
 
 class PostsAdapter : ListAdapter<PostResponse, PostsAdapter.PostsViewHolder>(PostsDiffUtils) {
 
+    private var onItemLongClickListener: ((Int) -> Unit)? = null
+
     inner class PostsViewHolder(private val binding: ItemPostsBinding) : ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnLongClickListener {
+                onItemLongClickListener?.invoke(absoluteAdapterPosition)
+                return@setOnLongClickListener true
+            }
+        }
 
         fun bind() = with(binding) {
             val model = getItem(absoluteAdapterPosition)
-            title.text = "${absoluteAdapterPosition+1}) ${model.title}"
+            title.text = "${absoluteAdapterPosition + 1}) ${model.title}"
             body.text = model.body
         }
     }
@@ -40,5 +49,9 @@ class PostsAdapter : ListAdapter<PostResponse, PostsAdapter.PostsViewHolder>(Pos
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         holder.bind()
+    }
+
+    fun setOnItemLongClickListener(block: (Int) -> Unit) {
+        onItemLongClickListener = block
     }
 }

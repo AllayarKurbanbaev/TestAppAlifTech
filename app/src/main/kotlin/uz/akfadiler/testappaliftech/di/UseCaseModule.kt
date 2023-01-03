@@ -29,4 +29,13 @@ interface UseCaseModule {
 
     @[Binds Singleton]
     fun deletePostByIdUseCase(impl: DeletePostByIdUseCaseImpl): DeletePostByIdUseCase
+
+    @[Binds Singleton]
+    fun getAlbumsByUserIdUseCase(impl: GetAlbumsByUserIdUseCaseImpl): GetAlbumsByUserIdUseCase
+
+    @[Binds Singleton]
+    fun getTodosByUserIdUseCase(impl: GetTodosByUserIdUseCaseImpl): GetTodosByUserIdUseCase
+
+    @[Binds Singleton]
+    fun getPhotosByUserIdUseCase(impl: GetPhotosByUserIdUseCaseImpl): GetPhotosByUserIdUseCase
 }

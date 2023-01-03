@@ -12,5 +12,12 @@
     <string name="no_phone_number">Phone number not found</string>
     <string name="detail">Detail</string>
     <string name="albums">Albums</string>
+    <string name="photos">Photos</string>
     <string name="todos">Todos</string>
+    <string name="delete_item">Do you want to delete this post?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="download">Download</string>
+    <string name="image_download">Image download</string>
+    <string name="downloading">Downloading....</string>
 </resources>
