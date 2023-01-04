@@ -27,12 +27,15 @@ class PhotosAdapter : ListAdapter<PhotosResponse, PhotosAdapter.PhotosViewHolder
 
         fun bind(): Unit = with(binding) {
             val model = getItem(absoluteAdapterPosition)
-            title.text = model.title
-            val url = GlideUrl(
-                model.thumbnailUrl,
-                LazyHeaders.Builder().addHeader("User-Agent", "your-user-agent").build()
-            )
-            Glide.with(root.context).load(url).centerCrop().into(imageView)
+            model.title?.let {
+                title.text = it
+            }
+            model.thumbnailUrl?.let {
+                val url = GlideUrl(
+                    it, LazyHeaders.Builder().addHeader("User-Agent", "your-user-agent").build()
+                )
+                Glide.with(root.context).load(url).centerCrop().into(imageView)
+            }
         }
     }
 

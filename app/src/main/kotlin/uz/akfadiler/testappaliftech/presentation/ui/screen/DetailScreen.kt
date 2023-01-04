@@ -31,6 +31,7 @@ import uz.akfadiler.testappaliftech.data.remote.response.todos.TodosResponse
 import uz.akfadiler.testappaliftech.databinding.ScreenDetailBinding
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.PhotosAdapter
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.PostsAdapter
+import uz.akfadiler.testappaliftech.presentation.ui.adapter.TodosAdapter
 import uz.akfadiler.testappaliftech.presentation.viewmodel.detail.DetailViewModel
 import uz.akfadiler.testappaliftech.presentation.viewmodel.detail.DetailViewModelImpl
 import uz.akfadiler.testappaliftech.utils.*
@@ -43,6 +44,7 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
     private val navArgs: DetailScreenArgs by navArgs()
     private val postsAdapter: PostsAdapter by lazy { PostsAdapter() }
     private val photosAdapter: PhotosAdapter by lazy { PhotosAdapter() }
+    private val todosAdapter: TodosAdapter by lazy { TodosAdapter() }
     private var tabSelectedId: TabLayout.Tab? = null
     private var postsList = ArrayList<PostResponse>()
     private var postPosition: Int? = null
@@ -89,7 +91,7 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
                         viewModel.loadPhotos(navArgs.userId)
                     }
                     2 -> {
-                        recyclerViewsVisible(posts = true)
+                        recyclerViewsVisible(todos = true)
                         viewModel.loadTodos(navArgs.userId)
                     }
                 }
@@ -113,7 +115,7 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
 
         val itemTouchHelper = ItemTouchHelper(swipe)
 
-        itemTouchHelper.attachToRecyclerView(recyclerView)
+        itemTouchHelper.attachToRecyclerView(recyclerViewPosts)
         postsAdapter.setOnItemLongClickListener {
             showDeleteDialog(it)
         }
@@ -144,7 +146,7 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
     }
 
     private val loadPostsObserver = Observer<List<PostResponse>> {
-        binding.recyclerView.adapter = postsAdapter
+        binding.recyclerViewPosts.adapter = postsAdapter
         postsList = it as ArrayList<PostResponse>
         postsAdapter.submitList(it)
     }
@@ -154,7 +156,8 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
     }
 
     private val loadTodosObserver = Observer<List<TodosResponse>> {
-
+        binding.recyclerViewTodos.adapter = todosAdapter
+        todosAdapter.submitList(it)
     }
     private val loadAlbumsObserver = Observer<List<AlbumsResponse>> {
 
@@ -183,9 +186,12 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
         alertDialog.show()
     }
 
-    private fun recyclerViewsVisible(posts: Boolean = false, photos: Boolean = false) {
-        binding.recyclerView.isVisible = posts
+    private fun recyclerViewsVisible(
+        posts: Boolean = false, photos: Boolean = false, todos: Boolean = false
+    ) {
+        binding.recyclerViewPosts.isVisible = posts
         binding.recyclerViewPhotos.isVisible = photos
+        binding.recyclerViewTodos.isVisible = todos
     }
 
     private fun downloadImage(url: String) {

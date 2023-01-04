@@ -20,4 +20,6 @@
     <string name="download">Download</string>
     <string name="image_download">Image download</string>
     <string name="downloading">Downloading....</string>
+    <string name="completed">Completed</string>
+    <string name="not_completed">Not Completed</string>
 </resources>

@@ -23,8 +23,12 @@ class PostsAdapter : ListAdapter<PostResponse, PostsAdapter.PostsViewHolder>(Pos
 
         fun bind() = with(binding) {
             val model = getItem(absoluteAdapterPosition)
-            title.text = "${absoluteAdapterPosition + 1}) ${model.title}"
-            body.text = model.body
+            model.title?.let {
+                title.text = "${absoluteAdapterPosition + 1}) ${it}"
+            }
+            model.body?.let {
+                body.text = it
+            }
         }
     }
 
