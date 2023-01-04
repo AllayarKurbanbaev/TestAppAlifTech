@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import uz.akfadiler.testappaliftech.R
 import uz.akfadiler.testappaliftech.data.remote.response.user.GeoUser
-import uz.akfadiler.testappaliftech.data.remote.response.user.UserResponse
 import uz.akfadiler.testappaliftech.databinding.ScreenHomeBinding
+import uz.akfadiler.testappaliftech.domain.model.UserData
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.UsersAdapter
 import uz.akfadiler.testappaliftech.presentation.viewmodel.home.HomeViewModel
 import uz.akfadiler.testappaliftech.presentation.viewmodel.home.HomeViewModelImpl
@@ -88,7 +88,7 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         } else snackMessage(getString(R.string.no_location))
     }
 
-    private val loadObserver = Observer<List<UserResponse>> {
+    private val loadObserver = Observer<List<UserData>> {
         userAdapter.submitList(it)
     }
 

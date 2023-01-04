@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.akfadiler.testappaliftech.data.remote.response.user.GeoUser
-import uz.akfadiler.testappaliftech.data.remote.response.user.UserResponse
 import uz.akfadiler.testappaliftech.databinding.ItemUsersBinding
+import uz.akfadiler.testappaliftech.domain.model.UserData
 
-class UsersAdapter : ListAdapter<UserResponse, UsersAdapter.UsersViewHolder>(UsersDiffUtils) {
+class UsersAdapter : ListAdapter<UserData, UsersAdapter.UsersViewHolder>(UsersDiffUtils) {
 
     private var onPostsClickListener: ((Int) -> Unit)? = null
     private var onLocationClickListener: ((GeoUser) -> Unit)? = null
@@ -19,9 +19,13 @@ class UsersAdapter : ListAdapter<UserResponse, UsersAdapter.UsersViewHolder>(Use
 
         init {
             binding.btnLocation.setOnClickListener {
-                getItem(absoluteAdapterPosition).address?.geo?.let {
-                    onLocationClickListener?.invoke(it)
-                }
+                val model = getItem(absoluteAdapterPosition)
+                if (model.lat != null && model.lng != null) onLocationClickListener?.invoke(
+                    GeoUser(
+                        model.lat, model.lng
+                    )
+                )
+
             }
             binding.btnCall.setOnClickListener {
                 getItem(absoluteAdapterPosition).phone?.let {
@@ -36,12 +40,12 @@ class UsersAdapter : ListAdapter<UserResponse, UsersAdapter.UsersViewHolder>(Use
         }
 
         fun bind(): Unit = with(binding) {
-            val model: UserResponse = getItem(absoluteAdapterPosition)
+            val model: UserData = getItem(absoluteAdapterPosition)
             model.name?.let {
                 nameDescription.text = it
             }
-            model.company?.let {
-                companyDescription.text = it.name
+            model.nameCompany?.let {
+                companyDescription.text = it
             }
             model.username?.let {
                 usernameDescription.text = it
@@ -55,12 +59,12 @@ class UsersAdapter : ListAdapter<UserResponse, UsersAdapter.UsersViewHolder>(Use
         }
     }
 
-    private object UsersDiffUtils : DiffUtil.ItemCallback<UserResponse>() {
-        override fun areItemsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean {
+    private object UsersDiffUtils : DiffUtil.ItemCallback<UserData>() {
+        override fun areItemsTheSame(oldItem: UserData, newItem: UserData): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean {
+        override fun areContentsTheSame(oldItem: UserData, newItem: UserData): Boolean {
             return oldItem == newItem
         }
 

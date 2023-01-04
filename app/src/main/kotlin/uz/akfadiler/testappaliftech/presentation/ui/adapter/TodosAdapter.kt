@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.akfadiler.testappaliftech.R
 import uz.akfadiler.testappaliftech.data.remote.response.todos.TodosResponse
 import uz.akfadiler.testappaliftech.databinding.ItemTodosBinding
+import uz.akfadiler.testappaliftech.domain.model.TodosData
 
-class TodosAdapter : ListAdapter<TodosResponse, TodosAdapter.TodosViewHolder>(TodosDiffUtils) {
+class TodosAdapter : ListAdapter<TodosData, TodosAdapter.TodosViewHolder>(TodosDiffUtils) {
 
     inner class TodosViewHolder(private val binding: ItemTodosBinding) : ViewHolder(binding.root) {
         fun bind() = with(binding) {
@@ -29,12 +30,12 @@ class TodosAdapter : ListAdapter<TodosResponse, TodosAdapter.TodosViewHolder>(To
         }
     }
 
-    private object TodosDiffUtils : DiffUtil.ItemCallback<TodosResponse>() {
-        override fun areItemsTheSame(oldItem: TodosResponse, newItem: TodosResponse): Boolean {
+    private object TodosDiffUtils : DiffUtil.ItemCallback<TodosData>() {
+        override fun areItemsTheSame(oldItem: TodosData, newItem: TodosData): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: TodosResponse, newItem: TodosResponse): Boolean {
+        override fun areContentsTheSame(oldItem: TodosData, newItem: TodosData): Boolean {
             return oldItem == newItem
         }
 

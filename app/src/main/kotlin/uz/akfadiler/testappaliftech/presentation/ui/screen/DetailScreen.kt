@@ -26,9 +26,11 @@ import timber.log.Timber
 import uz.akfadiler.testappaliftech.R
 import uz.akfadiler.testappaliftech.data.remote.response.albums.AlbumsResponse
 import uz.akfadiler.testappaliftech.data.remote.response.photos.PhotosResponse
-import uz.akfadiler.testappaliftech.data.remote.response.posts.PostResponse
 import uz.akfadiler.testappaliftech.data.remote.response.todos.TodosResponse
 import uz.akfadiler.testappaliftech.databinding.ScreenDetailBinding
+import uz.akfadiler.testappaliftech.domain.model.PhotosData
+import uz.akfadiler.testappaliftech.domain.model.PostsData
+import uz.akfadiler.testappaliftech.domain.model.TodosData
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.PhotosAdapter
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.PostsAdapter
 import uz.akfadiler.testappaliftech.presentation.ui.adapter.TodosAdapter
@@ -46,7 +48,7 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
     private val photosAdapter: PhotosAdapter by lazy { PhotosAdapter() }
     private val todosAdapter: TodosAdapter by lazy { TodosAdapter() }
     private var tabSelectedId: TabLayout.Tab? = null
-    private var postsList = ArrayList<PostResponse>()
+    private var postsList = ArrayList<PostsData>()
     private var postPosition: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) = with(viewModel) {
@@ -145,17 +147,17 @@ class DetailScreen : Fragment(R.layout.screen_detail), OnClickListener {
         findNavController().popBackStack()
     }
 
-    private val loadPostsObserver = Observer<List<PostResponse>> {
+    private val loadPostsObserver = Observer<List<PostsData>> {
         binding.recyclerViewPosts.adapter = postsAdapter
-        postsList = it as ArrayList<PostResponse>
+        postsList = it as ArrayList<PostsData>
         postsAdapter.submitList(it)
     }
-    private val loadPhotosObserver = Observer<List<PhotosResponse>> {
+    private val loadPhotosObserver = Observer<List<PhotosData>> {
         binding.recyclerViewPhotos.adapter = photosAdapter
         photosAdapter.submitList(it)
     }
 
-    private val loadTodosObserver = Observer<List<TodosResponse>> {
+    private val loadTodosObserver = Observer<List<TodosData>> {
         binding.recyclerViewTodos.adapter = todosAdapter
         todosAdapter.submitList(it)
     }

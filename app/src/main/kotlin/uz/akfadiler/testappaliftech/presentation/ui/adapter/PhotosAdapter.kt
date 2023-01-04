@@ -10,11 +10,12 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import uz.akfadiler.testappaliftech.data.remote.response.photos.PhotosResponse
 import uz.akfadiler.testappaliftech.databinding.ItemPhotosBinding
+import uz.akfadiler.testappaliftech.domain.model.PhotosData
 
 
-class PhotosAdapter : ListAdapter<PhotosResponse, PhotosAdapter.PhotosViewHolder>(PhotosDiffUtils) {
+class PhotosAdapter : ListAdapter<PhotosData, PhotosAdapter.PhotosViewHolder>(PhotosDiffUtils) {
 
-    private var onDownloadClickListener: ((PhotosResponse) -> Unit)? = null
+    private var onDownloadClickListener: ((PhotosData) -> Unit)? = null
 
     inner class PhotosViewHolder(private val binding: ItemPhotosBinding) :
         ViewHolder(binding.root) {
@@ -39,12 +40,12 @@ class PhotosAdapter : ListAdapter<PhotosResponse, PhotosAdapter.PhotosViewHolder
         }
     }
 
-    private object PhotosDiffUtils : DiffUtil.ItemCallback<PhotosResponse>() {
-        override fun areItemsTheSame(oldItem: PhotosResponse, newItem: PhotosResponse): Boolean {
+    private object PhotosDiffUtils : DiffUtil.ItemCallback<PhotosData>() {
+        override fun areItemsTheSame(oldItem: PhotosData, newItem: PhotosData): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: PhotosResponse, newItem: PhotosResponse): Boolean {
+        override fun areContentsTheSame(oldItem: PhotosData, newItem: PhotosData): Boolean {
             return oldItem == newItem
         }
 
@@ -62,7 +63,7 @@ class PhotosAdapter : ListAdapter<PhotosResponse, PhotosAdapter.PhotosViewHolder
         holder.bind()
     }
 
-    fun setOnDownloadClickListener(block: (PhotosResponse) -> Unit) {
+    fun setOnDownloadClickListener(block: (PhotosData) -> Unit) {
         onDownloadClickListener = block
     }
 }

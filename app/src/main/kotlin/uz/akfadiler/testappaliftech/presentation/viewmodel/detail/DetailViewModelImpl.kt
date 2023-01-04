@@ -11,9 +11,7 @@ import uz.akfadiler.testappaliftech.data.remote.response.albums.AlbumsResponse
 import uz.akfadiler.testappaliftech.data.remote.response.photos.PhotosResponse
 import uz.akfadiler.testappaliftech.data.remote.response.posts.PostResponse
 import uz.akfadiler.testappaliftech.data.remote.response.todos.TodosResponse
-import uz.akfadiler.testappaliftech.domain.model.asSuccess
-import uz.akfadiler.testappaliftech.domain.model.onSuccess
-import uz.akfadiler.testappaliftech.domain.model.onText
+import uz.akfadiler.testappaliftech.domain.model.*
 import uz.akfadiler.testappaliftech.domain.usecase.*
 import javax.inject.Inject
 
@@ -28,12 +26,12 @@ class DetailViewModelImpl @Inject constructor(
 ) : ViewModel(), DetailViewModel {
     override val errorLiveData: MutableLiveData<String> by lazy { MutableLiveData<String>() }
     override val progressLiveData: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
-    override val loadPostsLiveData: MutableLiveData<List<PostResponse>> by lazy { MutableLiveData<List<PostResponse>>() }
+    override val loadPostsLiveData: MutableLiveData<List<PostsData>> by lazy { MutableLiveData<List<PostsData>>() }
     override val deletePostLiveData: MutableLiveData<Unit> by lazy { MutableLiveData<Unit>() }
     override val backPressedLiveData: MutableLiveData<Unit> by lazy { MutableLiveData<Unit>() }
     override val loadAlbumsLiveData: MutableLiveData<List<AlbumsResponse>> by lazy { MutableLiveData<List<AlbumsResponse>>() }
-    override val loadTodosLiveData: MutableLiveData<List<TodosResponse>> by lazy { MutableLiveData<List<TodosResponse>>() }
-    override val loadPhotosLiveData: MutableLiveData<List<PhotosResponse>> by lazy { MutableLiveData<List<PhotosResponse>>() }
+    override val loadTodosLiveData: MutableLiveData<List<TodosData>> by lazy { MutableLiveData<List<TodosData>>() }
+    override val loadPhotosLiveData: MutableLiveData<List<PhotosData>> by lazy { MutableLiveData<List<PhotosData>>() }
 
     override fun loadPosts(userId: Int) {
         progressLiveData.value = true
