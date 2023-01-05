@@ -29,7 +29,7 @@ class DeletePostByIdUseCaseImpl @Inject constructor(private val repository: AppR
                 }
             }
         } else {
-            emit(ResultData.Fail(MessageData.Text("Internet not connected!")))
+            emit(ResultData.Success(repository.deletePostsByIdFromLocal(id)))
         }
     }.catch {
         emit(ResultData.Fail(MessageData.Text(it.localizedMessage!!)))

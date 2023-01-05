@@ -95,4 +95,8 @@ class AppRepositoryImpl @Inject constructor(
         todosDao.deleteTodosByUserId(userId)
         todosDao.insertTodos(list)
     }
+
+    override suspend fun deletePostsByIdFromLocal(id: Int) {
+        postsDao.deletePostsByUserId(userId = id)
+    }
 }

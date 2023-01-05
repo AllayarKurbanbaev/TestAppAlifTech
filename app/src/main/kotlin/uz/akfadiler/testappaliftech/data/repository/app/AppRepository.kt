@@ -30,4 +30,5 @@ interface AppRepository {
     suspend fun insertPhotosListFromLocal(list: List<PhotosEntity>, userId: Int)
     suspend fun getTodosByUserIdFromLocal(userId: Int): List<TodosEntity>
     suspend fun insertTodosListFromLocal(list: List<TodosEntity>, userId: Int)
+    suspend fun deletePostsByIdFromLocal(id : Int)
 }
